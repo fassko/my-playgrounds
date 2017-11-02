@@ -5,6 +5,10 @@ import XCPlayground
 
 //XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
+let name = "Last"
+
+name[name.index(name.startIndex, offsetBy: 0)]
+
 struct Ticket {
   var id: Int
 }
@@ -42,6 +46,8 @@ switch e {
     print(error)
 }
 
+// history of messages: id, callback, type
+
 typealias CallbackTypeGeneric = (QminderEventResultGeneric<Ticket>) -> Void
 
 var callbackMapGeneric = [String:CallbackTypeGeneric]()
@@ -49,24 +55,15 @@ var callbackMapGeneric = [String:CallbackTypeGeneric]()
 func subscribeGeneric(id: String, type: EventType, callback: @escaping (QminderEventResultGeneric<Ticket>) -> Void) {
   callbackMapGeneric[id] = callback
   
+  guard let c = callbackMapGeneric[id] else { return }
+  
   switch type {
   case .ticketCalled:
-    callback(QminderEventResultGeneric<Ticket>.success(Ticket(id: 666)))
+    c(QminderEventResultGeneric<Ticket>.success(Ticket(id: 666)))
   default:
     return
   }
 }
-
-//func subscribeGeneric(id: String, type: EventType, callback: @escaping (QminderEventResultGeneric<TVDevice>) -> Void) {
-//  //  callbackMapGeneric[id] = callback
-//
-//  switch type {
-//  case .ticketCalled:
-//    callback(QminderEventResultGeneric<Ticket>.success(TVDevice(id: 666)))
-//  default:
-//    return
-//  }
-//}
 
 subscribeGeneric(id: "generic", type: .ticketCalled, callback: { result in
   switch result {
@@ -138,3 +135,23 @@ subscribe(id: "error", type: EventType.ticketCancelled, callback: {result in
     print("Default3")
   }
 })
+
+typealias BlockType = (_ result: Int) -> Void
+typealias BlockType2 = (_ result: String) -> Void
+
+var blockDict: [String: Any] = [:]
+
+let aBlock: BlockType = { result in print("tete") }
+
+blockDict["1"] = (aBlock as Any)
+
+let castedBlock = blockDict["1"] as? BlockType
+castedBlock
+
+let block2: BlockType2 = { result in print("block2") }
+blockDict["2"] = (block2 as Any)
+
+let castedBlock2 = blockDict["2"] as? BlockType2
+castedBlock2
+
+print(blockDict)

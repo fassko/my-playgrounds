@@ -2,19 +2,33 @@
 
 import Cocoa
 
-let urlComponents = URLComponents(string: "http://www.qminder.com")
+struct Ticket {
+  var id: String
+  var status: String
+}
 
-//urlComponents.
+func !=(lhs: Ticket, rhs: Ticket) -> Bool {
+  return lhs.id != rhs.id && lhs.status != rhs.status
+}
 
-let parameters : [String: Any] = ["locationId": 1, "query": "by"]
+let a = Ticket(id: "1", status: "NEW")
+let b = Ticket(id: "1", status: "CALLED")
 
-var items = [URLQueryItem]()
+a != b
 
-parameters.forEach({key, value in
-  items.append(URLQueryItem(name: key, value: String.init(describing: value)))
-})
-
-print(items)
+//let urlComponents = URLComponents(string: "http://www.qminder.com")
+//
+////urlComponents.
+//
+//let parameters : [String: Any] = ["locationId": 1, "query": "by"]
+//
+//var items = [URLQueryItem]()
+//
+//parameters.forEach({key, value in
+//  items.append(URLQueryItem(name: key, value: String.init(describing: value)))
+//})
+//
+//print(items)
 
 
 //extension String {
