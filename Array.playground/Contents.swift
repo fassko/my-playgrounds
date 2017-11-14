@@ -37,9 +37,10 @@ chunked.takeElements(elementCount: 3).enumerated().forEach({ index, t in
 
 })
 
-
+a.chunk(size: 5).flatMap({ $0 }).enumerated().forEach({
+  print("\($0) \($1)")
+})
 
 let tmp = [[1, 2, 3],[]].filter({ !$0.isEmpty })
 
 tmp
-
