@@ -12,7 +12,7 @@ enum Status: String {
 }
 
 public struct Created {
-  public var date: Date?
+  public var date: Date
 }
 
 extension Created: Comparable {
@@ -21,7 +21,7 @@ extension Created: Comparable {
   }
   
   public static func < (lhs: Created, rhs: Created) -> Bool {
-    return lhs.date! < rhs.date!
+    return lhs.date < rhs.date
   }
 }
 
@@ -40,8 +40,22 @@ extension Served: Comparable {
     return lhs.date == rhs.date
   }
   
-  public static func < (lhs: Served, rhs: Served) -> Bool {
-    return lhs.date! < rhs.date!
+  public static func <(lhs: Served, rhs: Served) -> Bool {
+    guard let lhsDate = lhs.date, let rhsDate = rhs.date else { return false }
+    
+    return lhsDate < rhsDate
+  }
+}
+
+extension Called: Comparable {
+  public static func ==(lhs: Called, rhs: Called) -> Bool {
+    return lhs.date == rhs.date
+  }
+  
+  public static func <(lhs: Called, rhs: Called) -> Bool {
+    guard let lhsDate = lhs.date, let rhsDate = rhs.date else { return false }
+    
+    return lhsDate < rhsDate
   }
 }
 
@@ -61,11 +75,11 @@ dateFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
 let tickets = [
   Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.123Z")!), status: .new, called: nil, served: nil, orderAfter: nil),
-  Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.124Z")!), status: .called, called: nil, served: nil, orderAfter: nil),
+  Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.124Z")!), status: .called, called: Called(date: dateFormat.date(from: "2017-02-06T14:35:29.124Z")!, desk: nil, caller: nil), served: nil, orderAfter: nil),
   Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.125Z")!), status: .new, called: nil, served: nil, orderAfter: nil),
   Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.126Z")!), status: .new, called: nil, served: nil, orderAfter: nil),
   Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:35:29.146Z")!), status: .noShow, called: nil, served: Served(date: dateFormat.date(from: "2017-02-06T12:39:29.146Z")!), orderAfter: nil),
-  Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:32:29.124Z")!), status: .called, called: nil, served: nil, orderAfter: nil),
+  Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:32:29.124Z")!), status: .called, called: Called(date: dateFormat.date(from: "2017-02-06T13:35:29.125Z")!, desk: nil, caller: nil), served: nil, orderAfter: nil),
   Ticket(created: Created(date: dateFormat.date(from: "2017-02-06T12:38:29.146Z")!), status: .noShow, called: nil, served: Served(date: dateFormat.date(from: "2017-02-06T12:58:29.146Z")!), orderAfter: nil),
 ]
 
@@ -82,20 +96,26 @@ extension Ticket: Comparable {
   
   // Comparable
   public static func <(lhs: Ticket, rhs: Ticket) -> Bool {
-
+    
     switch (lhs.status, rhs.status) {
+    
     case (.noShow, .noShow):
       return lhs.created < rhs.created
-    case (.noShow, .called):
+      
+    case (.noShow, _) where [.called, .new].contains(rhs.status):
       return true
-    case (.noShow, .new):
-      return true
+      
     case (.called, .called):
-      return lhs.created < rhs.created
+      guard let lhsCalled = lhs.called, let rhsCalled = rhs.called else { return false }
+      
+      return lhsCalled < rhsCalled
+      
     case (.called, .new):
       return true
+      
     case (.new, .new):
-      return lhs.created < rhs.created
+      return lhs.orderAfter ?? lhs.created.date < rhs.orderAfter ?? rhs.created.date
+      
     default:
       return false
     }
@@ -165,7 +185,7 @@ extension Ticket: CustomStringConvertible {
     let dateFormat = DateFormatter()
     dateFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     
-    return status.rawValue + " " + dateFormat.string(from: created.date!)
+    return status.rawValue + " " + dateFormat.string(from: created.date)
   }
 }
 
