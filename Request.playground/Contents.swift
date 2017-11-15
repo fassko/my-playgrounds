@@ -29,7 +29,7 @@ func request() {
   var request = URLRequest(url: url)
   request.httpMethod = "GET"
   
-  request.setValue("eKsenRpCbpkrpcAkia6nzwzPYkzkNQMOnAYEXSr5", forHTTPHeaderField: "X-Qminder-REST-API-Key")
+  request.setValue("", forHTTPHeaderField: "X-Qminder-REST-API-Key")
   
   var session = URLSession.shared
   
