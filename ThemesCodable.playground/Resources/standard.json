@@ -1,0 +1,266 @@
+{
+"logoFillColor": {
+"code": "#33cc62"
+},
+"lineNameColor": {
+"code": "#FFFFFF"
+},
+"lineNameFont": {
+"name": "SkolarSansLatn-Rg",
+"size": 60.0
+},
+"loadingBackgroundColor": {
+"code": "#005247",
+"alpha": 0.5
+},
+"offlineBackgroundColor": {
+"code": "#005247",
+"alpha": 0.8
+},
+"offlineTitleTextColor": {
+"code": "#adea67"
+},
+"offlineTitleFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 92.0
+},
+"offlineSubTitleTextColor": {
+"code": "#ffffff"
+},
+"offlineSubTitleFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 48.0
+},
+"backgroundViewColor": {
+"code": "#055555"
+},
+"backgroundViewGradientFromColor": {
+"code": "#055555"
+},
+"backgroundViewGradientToColor": {
+"code": "#055555"
+},
+"backgroundTrianglesFillColor": {
+"code": "#33cc62"
+},
+"backgroundTrianglesAlphaGroups": [
+0.0,
+0.1,
+0.25,
+0.4,
+0.55
+],
+"namesListSeparatorColor": {
+"code": "#A3FB4E",
+"alpha": 0.4
+},
+"nameTextColor": {
+"code": "#FFFFFF"
+},
+"newNameTextColor": {
+"code": "#005247"
+},
+"hiNewNameTextColor": {
+"code": "#A3FB4E"
+},
+"newNameBackgroundColor": {
+"code": "#FFFFFF"
+},
+"calledNameBackgroundColor": {
+"code": "#A3FB4E"
+},
+"calledNameAfterBackgroundColor": {
+"code": "#005247",
+"alpha": 0.5
+},
+"calledNameAfterFontColor": {
+"code": "#A3FB4E"
+},
+"calledNameSpacing": 20.0,
+"calledNameAfterSpacing": 150.0,
+"calledNameTextColor": {
+"code": "#005247"
+},
+"calledNameArrowColor": {
+"code": "#005247"
+},
+"calledDeskNumberColor": {
+"code": "#005247"
+},
+"noShowNameTextColor": {
+"code": "#005247",
+"alpha": 1.0
+},
+"noShowDeskNumberColor": {
+"code": "#005247",
+"alpha": 1.0
+},
+"waitingCountViewBackgroundColor": {
+"code": "#005247",
+"alpha": 0.5
+},
+"waitingCountPlusSignColor": {
+"code": "#a3fb4e"
+},
+"waitingCounterPlusSignFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 60.0
+},
+"waitingCountLabelColor": {
+"code": "#FFFFFF"
+},
+"waitingCountLabelFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 72.0
+},
+"notificationBackgroundViewColor": {
+"code": "#b1fa69"
+},
+"notificationBackgroundViewGradientFromColor": {
+"code": "#b1fa69"
+},
+"notificationBackgroundViewGradientToColor": {
+"code": "#c4fc8e"
+},
+"notificationBackgroundFillColor": {
+"code": "#33cc62"
+},
+"notificationBackgroundTrianglesAlphaGroups": [
+0.0,
+0.1,
+0.2,
+0.35,
+0.5
+],
+"notificationCalledNameArrowColor": {
+"code": "#005247"
+},
+"notificationCalledNameColor": {
+"code": "#005247"
+},
+"notificationCalledNameFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 148.0
+},
+"notificationCalledDeskNumberFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 160.0
+},
+"notificationToFont": {
+"name": "SkolarSansLatn-Rg",
+"size": 96.0
+},
+"notificationToColor": {
+"code": "#22c26a"
+},
+"notificationAvatarFaceColor": {
+"code": "#A3FB4E"
+},
+"notificationAvatarBackgroundColor": {
+"code": "#22c26a"
+},
+"notificationClerkImageBorderColor": {
+"code": "#22c26a"
+},
+"notificationClerkNameFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 148.0
+},
+"notificationClerkNameColor": {
+"code": "#22c26a"
+},
+"notificationDeskNameFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 72.0
+},
+"notificationDeskNameColor": {
+"code": "#005247"
+},
+"notificationSeperatorViewBackgroundColor": {
+"code": "#2ac971",
+"alpha": 0.4
+},
+"nameFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"nameCellFontSize": {
+"1": 148,
+"2": 135,
+"3": 122,
+"4": 109,
+"5": 96,
+"default": 78
+},
+"nameCellHeight": {
+"1": 216,
+"2": 200,
+"3": 182,
+"4": 165,
+"5": 148,
+"default": 118
+},
+"calledNameFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"calledNameDeskNumberFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"noShowNameFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"noShowDeskNumberFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"noShowBackgroundColor": {
+"code": "#ffffff",
+"alpha": 0.15
+},
+"turnMissedFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"turnMissedFontColor": {
+"code": "#005247"
+},
+"superscriptTextFont": {
+"name": "SkolarSansLatn-Bd"
+},
+"superscriptTextFontSize": {
+"1": 60,
+"2": 58,
+"3": 52,
+"4": 50,
+"5": 50,
+"default": 48
+},
+"superscriptTextMargin": {
+"1": 32,
+"2": 30,
+"3": 28,
+"4": 26,
+"5": 24,
+"default": 18
+},
+"nameBoxCornerRadius": {
+"1": 32,
+"2": 28,
+"3": 24,
+"4": 20,
+"5": 16,
+"default": 16
+},
+"emptyStateTextFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 96.0
+},
+"emptyStateTextColor": {
+"code": "#FFFFFF"
+},
+"closedViewFillColor": {
+"code": "#CBF798"
+},
+"closedViewTextFont": {
+"name": "SkolarSansLatn-Bd",
+"size": 60.0
+}
+}
+

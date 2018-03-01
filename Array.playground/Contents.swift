@@ -44,3 +44,25 @@ a.chunk(size: 5).flatMap({ $0 }).enumerated().forEach({
 let tmp = [[1, 2, 3],[]].filter({ !$0.isEmpty })
 
 tmp
+
+
+struct Desk {
+  let id: Int
+  let name: String
+}
+
+var desks: [Desk] = []
+
+desks = [Desk(id: 1, name: "1"), Desk(id: 2, name: "2"), Desk(id: 3, name: "3")]
+
+//let numberedDesks = desks.reduce(true) { $0 && Int($1.name) != nil }
+
+
+let numberedDesks = desks.reduce(true) { result, desk -> Bool in
+  
+  print("\(result) \(desk.name) \(Int(desk.name))")
+  
+  return result && Int(desk.name) != nil
+}
+
+print(numberedDesks)
