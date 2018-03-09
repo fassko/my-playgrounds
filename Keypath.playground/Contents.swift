@@ -12,7 +12,7 @@ protocol Responsable {
 protocol ResponsableWithData: Responsable {
   associatedtype Data
   
-  static var dataContainer: WritableKeyPath<Self, Data> { get }
+  static var dataContainer: KeyPath<Self, Data> { get }
   
   var dataObject: Data { get }
 }
@@ -29,7 +29,7 @@ struct Users: ResponsableWithData {
   static var dataContainer = \Users.data
   
   var statusCode: Int
-  var data: [User]
+  let data: [User]
 }
 
 struct User {
@@ -43,7 +43,7 @@ struct Desks: ResponsableWithData {
   static var dataContainer = \Desks.desks
   
   var statusCode: Int
-  var desks: [Desk]
+  let desks: [Desk]
 }
 
 struct Desk {
