@@ -5,14 +5,19 @@ import Foundation
 
 // ------ Protocols
 
-protocol DataProtocol {
+protocol Responsable {
+  var statusCode: Int { get }
+}
+
+protocol ResponsableWithData: Responsable {
   associatedtype Data
+  
   static var dataContainer: WritableKeyPath<Self, Data> { get }
   
   var dataObject: Data { get }
 }
 
-extension DataProtocol {
+extension ResponsableWithData {
   var dataObject: Data {
     return self[keyPath: Self.dataContainer]
   }
@@ -20,7 +25,7 @@ extension DataProtocol {
 
 /// -- Users
 
-struct Users: DataProtocol {
+struct Users: ResponsableWithData {
   static var dataContainer = \Users.data
   
   var statusCode: Int
@@ -34,7 +39,7 @@ struct User {
 
 // Desks
 
-struct Desks: DataProtocol {
+struct Desks: ResponsableWithData {
   static var dataContainer = \Desks.desks
   
   var statusCode: Int
