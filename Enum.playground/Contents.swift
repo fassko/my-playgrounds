@@ -38,3 +38,20 @@ let e = StringTest.pirmais
 var s: String?
 
 s = e.rawValue
+
+
+enum CompassPoint {
+  case north
+  case south
+  case east
+  case west
+}
+
+let compassPoint = CompassPoint.south
+
+switch compassPoint {
+case .north, .south:
+  print("tete")
+default:
+  print("default")
+}

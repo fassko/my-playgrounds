@@ -57,6 +57,9 @@ struct Desk {
 let u = Users(statusCode: 200, data: [User(id: 1, name: "Kristaps")])
 u[keyPath: Users.dataContainer]
 
+type(of: \Users.data).valueType
+type(of: u.data)
+
 u.dataObject
 
 u.data
